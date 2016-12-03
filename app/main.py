@@ -13,7 +13,7 @@ def read_temperature_data():
 	x=mraa.Aio(1)
 	val=x.readFloat()
 	print val
-    return val
+	return val
 
 #publish temperature
 while 1:
