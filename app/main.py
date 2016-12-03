@@ -1,6 +1,7 @@
 import time
 import paho.mqtt.client as mqtt
 import random
+import os
 
 mqttc=mqtt.Client()
 mqttc.connect("iot.eclipse.org",1883,60)
@@ -13,7 +14,10 @@ def read_sound_data():
 #publish temperature
 while 1:
     t=read_sound_data()
-    (result,mid)=mqttc.publish("topic/GeneralizedIoT/temperature",t,2)
+    print "Publishing data"
+    device_uuid=os.environ['RESIN_DEVICE_UUID'];
+    print device_uuid
+    (result,mid)=mqttc.publish("topic/GeneralizedIoT/"+str(device_uuid),t,2)
     time.sleep(1)
 
 mqttc.loop_stop()
