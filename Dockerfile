@@ -10,7 +10,9 @@ RUN apt-get -q update \
 		curl \
         	git 
 
-RUN pip install paho-mqtt		
+RUN pip install paho-mqtt
+
+RUN pip install mraa		
 
 WORKDIR /usr/src/app
 
