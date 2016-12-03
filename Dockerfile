@@ -11,6 +11,9 @@ RUN apt-get -q update \
 		curl \
         	git 
 
+
+RUN pip install --upgrade pip
+
 RUN pip install paho-mqtt
 
 #RUN sudo pip install mraa		
