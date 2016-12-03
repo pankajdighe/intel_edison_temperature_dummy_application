@@ -12,7 +12,7 @@ RUN apt-get -q update \
 
 RUN pip install paho-mqtt
 
-RUN pip install mraa		
+RUN sudo pip install mraa		
 
 WORKDIR /usr/src/app
 
