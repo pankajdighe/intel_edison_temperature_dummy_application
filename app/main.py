@@ -2,18 +2,22 @@ import time
 import paho.mqtt.client as mqtt
 import random
 import os
+import mraa
 
 mqttc=mqtt.Client()
 mqttc.connect("iot.eclipse.org",1883,60)
 mqttc.loop_start()
 
 #read temperature
-def read_sound_data():
-    return random.randint(-50, 100)
+def read_temperature_data():
+	x=mraa.Aio(1)
+	val=x.readFloat()
+	print val
+    return val
 
 #publish temperature
 while 1:
-    t=read_sound_data()
+    t=read_temperature_data()
     print "Publishing data"
     device_uuid=os.environ['RESIN_DEVICE_UUID'];
     print device_uuid
