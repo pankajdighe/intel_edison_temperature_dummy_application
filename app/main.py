@@ -8,7 +8,7 @@ mqttc=mqtt.Client()
 mqttc.connect("iot.eclipse.org",1883,60)
 mqttc.loop_start()
 
-#read temperature
+#read temperature gg
 def read_temperature_data():
 	x=mraa.Aio(1)
 	val=x.readFloat()
