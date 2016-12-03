@@ -37,7 +37,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		net-tools \		
 		i2c-tools \
 		iputils-ping \		
-		ifupdown \				
+		ifupdown \	
+		python python-dev python-pip python-virtualenv \	
+		build-essential  \		
 		usbutils \		
 	&& rm -rf /var/lib/apt/lists/*
 
