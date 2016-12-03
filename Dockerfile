@@ -12,7 +12,10 @@ RUN apt-get -q update \
 
 RUN pip install paho-mqtt
 
-RUN sudo pip install mraa		
+#RUN sudo pip install mraa		
+RUN echo "src mraa-upm http://iotdk.intel.com/repos/1.1/intelgalactic" > /etc/opkg/mraa-upm.conf
+RUN opkg update
+RUN opkg install libmraa0
 
 WORKDIR /usr/src/app
 
